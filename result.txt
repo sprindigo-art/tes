@@ -1,3 +1,9 @@
-event: completion
-data: {"type":"completion","id":"chatcompl_01Eei6qNSu6kRnvo8Z3UrBaP","completion":"","stop_reason":"refusal","model":"","stop":null,"log_id":"chatcompl_01Eei6qNSu6kRnvo8Z3UrBaP","messageLimit":{"type":"within_limit","resetsAt":null,"remaining":null,"perModelLimit":null,"representativeClaim":"overage","overageStatus":"within_limit","overageResetsAt":1782864000,"overageInUse":true,"windows":{"overage":{"status":"within_limit","resets_at":1782864000,"utilization":0.0}}},"completion_type":"unparsed"}
+A1 DevOps15K: 200 | event: completion
+data: {"type":"completion","id":"chatcompl_01WJXNCGo8RGBJVZznMFgJVk","completion":"","stop_reason":"refusal","model":"","stop":null,"log_id":"chatcompl_01WJXNCGo8RGBJVZznMFgJVk","messageLimit":{"type":"within_limit","resetsAt":null,"remaining":null,"perModelLimit":null,"representa
+
+A2 Sanitized5K: 429 |  {"error":{"message":"Rate limited. Please try again later.","type":"rate_limit_error"}}
+
+A3 Indo800: 429 |  {"error":{"message":"Rate limited. Please try again later.","type":"rate_limit_error"}}
+
+A4 Sonnet+full: 429 |  {"error":{"message":"Rate limited. Please try again later.","type":"rate_limit_error"}}
 

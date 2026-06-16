@@ -1,7 +1,7 @@
-CLAUDE.md: 30542 chars
-Conv: df95f0c8-21e5-4a67-9912-ef68b3b13423
-Upload: uuid=dd5ecb30-2672-4c08-b797-f11e0a317962 size=30824
-TEST_A (extracted_content=full): status=200 stop=refusal
-TEST_A response: 
-TEST_B (no extracted_content): status=429 stop=
-TEST_B response: 
+A1 Conv: 2ec46531-a80e-4abc-8419-4eea97375769
+A1 chunk1: status=200 stop=stop_sequence
+A1 chunk2: status=429 stop=
+A1 chunk3: status=429 stop=
+A1 final: stop= text=
+A2 unicode: stop= text=
+A3 clean(780chars): stop= text=

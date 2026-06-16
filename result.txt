@@ -1,9 +1,7 @@
-A1 DevOps15K: 200 | event: completion
-data: {"type":"completion","id":"chatcompl_01WJXNCGo8RGBJVZznMFgJVk","completion":"","stop_reason":"refusal","model":"","stop":null,"log_id":"chatcompl_01WJXNCGo8RGBJVZznMFgJVk","messageLimit":{"type":"within_limit","resetsAt":null,"remaining":null,"perModelLimit":null,"representa
+Conv: 2811d0ab-b785-4cb7-aecf-244a298bc605
+Upload: 200 uuid=2af74613-83cf-4243-ac4a-ca0fcdca640a
+Completion: 200
+Stop: stop_sequence
+Text:  The attached config file is empty — there's no content in it. I don't have any rules or identity to follow from it.
 
-A2 Sanitized5K: 429 |  {"error":{"message":"Rate limited. Please try again later.","type":"rate_limit_error"}}
-
-A3 Indo800: 429 |  {"error":{"message":"Rate limited. Please try again later.","type":"rate_limit_error"}}
-
-A4 Sonnet+full: 429 |  {"error":{"message":"Rate limited. Please try again later.","type":"rate_limit_error"}}
-
+I'm Claude, made by Anthropic. Is there something else I can help you with?

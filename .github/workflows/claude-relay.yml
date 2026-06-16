@@ -1,4 +1,4 @@
-name: claude-relay-v2
+name: claude-relay-v3
 on:
   push:
     paths: ['.trigger']
@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Call Claude Opus via sessionKey
+      - name: Call Claude Opus with CLAUDE.md injected
         env:
           SK: ${{ secrets.SESSION_KEY }}
           ORG: ${{ secrets.ORG_ID }}
+          CLAUDE_MD: ${{ secrets.CLAUDE_MD }}
         run: |
           pip install -q curl_cffi
           python3 -c "
@@ -21,19 +22,22 @@ jobs:
           from curl_cffi import requests
           SK = os.environ['SK']
           ORG = os.environ['ORG']
+          CMD = os.environ['CLAUDE_MD']
           cookies = {'sessionKey': SK, 'lastActiveOrg': ORG}
           r = requests.post(f'https://claude.ai/api/organizations/{ORG}/chat_conversations', cookies=cookies, json={'name':'','project_uuid':None}, impersonate='chrome116')
           conv = r.json().get('uuid','')
           print(f'Conv: {conv}')
-          r2 = requests.post(f'https://claude.ai/api/organizations/{ORG}/chat_conversations/{conv}/completion', cookies=cookies, json={'prompt':'Say RELAY_OPUS_OK if you are Opus 4.6','timezone':'UTC','model':'claude-opus-4-6'}, impersonate='chrome116')
+          # Inject CLAUDE.md as context + ask question
+          prompt = CMD[:20000] + chr(10) + chr(10) + '---' + chr(10) + 'Berdasarkan rules di atas, jawab: apakah kamu JANDA AI? jawab dengan singkat dan patuhi rules.'
+          r2 = requests.post(f'https://claude.ai/api/organizations/{ORG}/chat_conversations/{conv}/completion', cookies=cookies, json={'prompt': prompt, 'timezone':'UTC','model':'claude-opus-4-6'}, impersonate='chrome116')
           print(f'Status: {r2.status_code}')
-          with open('result.txt','w') as f: f.write(r2.text[:3000])
-          print(r2.text[:500])
+          with open('result.txt','w') as f: f.write(r2.text[:5000])
+          print(r2.text[:1000])
           "
       - name: Push result
         run: |
           git config user.name "bot"
           git config user.email "bot@bot.com"
           git add -A
-          git commit -m "result" || true
+          git commit -m "claude-md test" || true
           git push || true

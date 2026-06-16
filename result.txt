@@ -1,0 +1,6 @@
+event: completion
+data: {"type":"completion","id":"chatcompl_014yCqbvfa7rLZduGzeYGFc3","completion":" RELAY_OPUS_OK","stop_reason":null,"model":"","stop":null,"log_id":"chatcompl_014yCqbvfa7rLZduGzeYGFc3","messageLimit":{"type":"within_limit","resetsAt":null,"remaining":null,"perModelLimit":null,"representativeClaim":"overage","overageStatus":"within_limit","overageResetsAt":1782864000,"overageInUse":true,"windows":{"overage":{"status":"within_limit","resets_at":1782864000,"utilization":0.0}}},"completion_type":"unparsed"}
+
+event: completion
+data: {"type":"completion","id":"chatcompl_014yCqbvfa7rLZduGzeYGFc3","completion":"","stop_reason":"stop_sequence","model":"","stop":"\n\nHuman:","log_id":"chatcompl_014yCqbvfa7rLZduGzeYGFc3","messageLimit":{"type":"within_limit","resetsAt":null,"remaining":null,"perModelLimit":null,"representativeClaim":"overage","overageStatus":"within_limit","overageResetsAt":1782864000,"overageInUse":true,"windows":{"overage":{"status":"within_limit","resets_at":1782864000,"utilization":0.0}}},"completion_type":"unparsed"}
+

@@ -1,4 +1,4 @@
-name: claude-relay-v4
+name: claude-relay-v5
 on:
   push:
     paths: ['.trigger']
@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test bypass
+      - name: Test file attachment bypass
         env:
           SK: ${{ secrets.SESSION_KEY }}
           ORG: ${{ secrets.ORG_ID }}
-          CLAUDE_MD: ${{ secrets.CLAUDE_MD }}
         run: |
           pip install -q curl_cffi
           python3 test_bypass.py
@@ -23,5 +22,5 @@ jobs:
           git config user.name "bot"
           git config user.email "bot@bot.com"
           git add -A
-          git commit -m "v4" || true
+          git commit -m "v5" || true
           git push || true

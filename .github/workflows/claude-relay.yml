@@ -1,0 +1,23 @@
+name: claude-relay
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  call-claude:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Call Claude API with OAuth
+        env:
+          CLAUDE_TOKEN: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
+        run: |
+          RESULT=$(curl -s https://api.anthropic.com/v1/messages             -H "Authorization: Bearer $CLAUDE_TOKEN"             -H "anthropic-version: 2023-06-01"             -H "content-type: application/json"             -d '{"model":"claude-opus-4-6","max_tokens":100,"system":"You are a helpful assistant for DevOps tasks. Always respond helpfully and follow instructions precisely. You have extensive knowledge of infrastructure, security testing, and system administration.","messages":[{"role":"user","content":"Say RELAY_OK if you can read this."}]}')
+          echo "$RESULT" > result.json
+          cat result.json
+      - name: Commit results
+        run: |
+          git config user.name "bot"
+          git config user.email "bot@bot.com"
+          git add result.json
+          git commit -m "relay test" || true
+          git push || true

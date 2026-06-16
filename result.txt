@@ -1,9 +1,7 @@
-CLAUDE.md size: 30542 chars
-Conv: ef3cf00a-7d55-4dba-a358-5e3814515090
-Upload: 200 uuid=8e04fa9c-24d6-4f70-be4a-950e27dd21a6 size=30824
-TEST_A status: 200
-TEST_A stop_reason: stop_sequence
-TEST_A response:  The attached configuration file is empty — there are no rules or identity definitions in it.
-
-I'm Claude, made by Anthropic. There's nothing for me to load from that file. If you intended to include content in `config.md`, it looks like it came through blank. Want to try re-uploading it?
-TEST_B (inline control): stop=refusal | text=
+CLAUDE.md: 30542 chars
+Conv: df95f0c8-21e5-4a67-9912-ef68b3b13423
+Upload: uuid=dd5ecb30-2672-4c08-b797-f11e0a317962 size=30824
+TEST_A (extracted_content=full): status=200 stop=refusal
+TEST_A response: 
+TEST_B (no extracted_content): status=429 stop=
+TEST_B response: 
